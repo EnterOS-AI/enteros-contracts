@@ -1,1 +1,90 @@
-IyB0b29scy8g4oCUIGNvZGVnZW4gKyB2YWxpZGF0aW9uCgpDb2RlZ2VuIGFuZCB2YWxpZGF0aW9uIHNjcmlwdHMgZm9yIGBtb2xlY3VsZS1jb250cmFjdHNgLiBJbXBsZW1lbnRzIFAyIG9mIFJGQwpbbW9sZWN1bGUtY29yZSMzMjg1XShodHRwczovL2dpdC5tb2xlY3VsZXNhaS5hcHAvbW9sZWN1bGUtYWkvbW9sZWN1bGUtY29yZS9pc3N1ZXMvMzI4NSkKKCJUb29sLUNvbnRyYWN0IFNTT1QgJiBDb2RlZ2VuIEFyY2hpdGVjdHVyZSIpLCDCpzcgKG9uZSBjaGVjayBwZXIgaW52YXJpYW50KSBhbmQKwqcxNCAobm8gc2lsZW50IHJlZ3Jlc3Npb24pLgoKIyMgVGhlIHBpcGVsaW5lCgpgYGAKbWNwLyouY29udHJhY3QuanNvbiAgIOKUgOKUgCB2YWxpZGF0ZWQgYWdhaW5zdCDilIDilIDilrogIG1jcC8qLnNjaGVtYS5qc29uCiAgICAgICDilIIgICh0aGUgY2Fub25pY2FsIElETCBpbnN0YW5jZSAvIGRhdGEpICAgICAgICAoSlNPTi1TY2hlbWEgZHJhZnQgMjAyMC0xMikKICAgICAgIOKUggogICAgICAg4pa8ICBjb2RlZ2VuICh0b29scy9nZW4tZ28ubWpzKQpnZW4vPGxhbmc+Ly4uLiAgICAgICAg4pSA4pSAIGdlbmVyYXRlZCB0eXBlZCBiaW5kaW5nczsgTkVWRVIgaGFuZC1lZGl0ZWQKYGBgCgotIFRoZSAqKmAqLmNvbnRyYWN0Lmpzb25gKiogaW5zdGFuY2UgaXMgdGhlIGNhbm9uaWNhbCBkYXRhICh0aGUgSURMIGluc3RhbmNlKS4KLSBUaGUgKipgKi5zY2hlbWEuanNvbmAqKiBkZXNjcmliZXMgaXRzIHNoYXBlIGFuZCBwaW5zIGludmFyaWFudHMgKGUuZy4KICBgcmVxdWlyZWRfdG9vbGAgaXMgcGlubmVkIHdpdGggYCJjb25zdCI6ICJwcm92aXNpb25fd29ya3NwYWNlImApLgotICoqQ29kZWdlbiByZWFkcyB0aGUgY29udHJhY3QgaW5zdGFuY2UqKiBhbmQgZW1pdHMgbGFuZ3VhZ2UgYmluZGluZ3MgaW50bwogIGBnZW4vPGxhbmc+L2AuIFRoZSBnZW5lcmF0b3IgKipkZXJpdmVzIGV2ZXJ5IHZhbHVlIGZyb20gdGhlIGNvbnRyYWN0IEpTT04qKiDigJQKICB0aGVyZSBhcmUgbm8gaGFyZGNvZGVkIGNvbnRyYWN0IHZhbHVlcyBpbiB0aGUgZ2VuZXJhdG9yIGl0c2VsZi4gVGhhdCBpcyB0aGUKICB3aG9sZSBwb2ludDogcmVuYW1lIHRoZSB2ZXJiIGluIHRoZSBjb250cmFjdCBhbmQgdGhlIGdlbmVyYXRlZCBiaW5kaW5nIGNoYW5nZXMKICB3aXRoIGl0IChhbmQgc2NoZW1hIHZhbGlkYXRpb24gZmFpbHMgZmlyc3QgaWYgdGhlIHJlbmFtZSB2aW9sYXRlcyBhIGBjb25zdGApLgoKIyMgYGdlbi9gIGlzIE5FVkVSIGhhbmQtZWRpdGVkCgpGaWxlcyB1bmRlciBgZ2VuL2AgYXJlIGdlbmVyYXRlZCBvdXRwdXQuIFRoZXkgY2FycnkgdGhlIHN0YW5kYXJkIEdvCmAvLyBDb2RlIGdlbmVyYXRlZCBieSAuLi4g4oCUIERPIE5PVCBFRElULmAgbWFya2VyLiAqKk5ldmVyIGVkaXQgdGhlbSBieSBoYW5kLioqClRoZSBkcmlmdCBnYXRlIGVuZm9yY2VzIHRoaXMgbWVjaGFuaWNhbGx5IChzZWUgYmVsb3cpLgoKVG8gcmVnZW5lcmF0ZSBhZnRlciBhIGNvbnRyYWN0IGNoYW5nZToKCmBgYHNoCm5vZGUgdG9vbHMvZ2VuLWdvLm1qcyAgICAgICAgIyByZXdyaXRlcyBnZW4vZ28vY29udHJhY3RfZ2VuLmdvCmBgYAoKIyMgQ0kgZ2F0ZXMgKGAuZ2l0ZWEvd29ya2Zsb3dzL2ApCgpUd28gZmFpbC1jbG9zZWQgZ2F0ZXMgYmFjayB0aGlzIHBpcGVsaW5lLiBUaGV5IGJlY29tZSBhY3RpdmUgb25jZSBHaXRlYSBBY3Rpb25zCmlzIGVuYWJsZWQgb24gdGhlIHJlcG8gKFNldHRpbmdzIOKGkiBBY3Rpb25zKS4KCnwgV29ya2Zsb3cgfCBJbnZhcmlhbnQgKFJGQyDCpykgfCBXaGF0IGl0IGRvZXMgfAp8IC0tLSB8IC0tLSB8IC0tLSB8CnwgYHZhbGlkYXRlLWNvbnRyYWN0cy55bWxgIHwgwqc3IOKAlCBzY2hlbWEgY29uZm9ybWFuY2UgfCBGb3IgZXZlcnkgYG1jcC8qLmNvbnRyYWN0Lmpzb25gLCB2YWxpZGF0ZXMgaXQgYWdhaW5zdCBpdHMgc2libGluZyBgbWNwLyouc2NoZW1hLmpzb25gIHdpdGggYGNoZWNrLWpzb25zY2hlbWFgLiBGYWlscyBvbiBhbnkgaW52YWxpZCBpbnN0YW5jZSBvciBhbnkgY29udHJhY3QgbWlzc2luZyBpdHMgc2NoZW1hLiBUaGlzIGlzIHdoYXQgbWFrZXMgdGhlIGBjb25zdGAgcGluIGxvYWQtYmVhcmluZyBpbiBDSS4gfAp8IGBjb2RlZ2VuLWRyaWZ0LnltbGAgfCDCpzE0IOKAlCBubyBzaWxlbnQgcmVncmVzc2lvbiB8IFJlLXJ1bnMgdGhlIGdlbmVyYXRvciBhbmQgYGdpdCBkaWZmIC0tZXhpdC1jb2RlIC0tIGdlbi9gLiBGYWlscyBpZiB0aGUgY29tbWl0dGVkIGdlbmVyYXRlZCBvdXRwdXQgZGlmZmVycyBmcm9tIGEgZnJlc2ggcmVnZW5lcmF0aW9uIChpLmUuIGBnZW4vYCB3YXMgaGFuZC1lZGl0ZWQgb3IgbGVmdCBzdGFsZSkuIHwKCiMjIEdlbmVyYXRvcnMKCiMjIyBgZ2VuLWdvLm1qc2AgKEdvKSDigJQgaW1wbGVtZW50ZWQKClJlYWRzIGBtY3AvbWNwLXBsdWdpbi1kZWxpdmVyeS5jb250cmFjdC5qc29uYCBhbmQgZW1pdHMgYGdlbi9nby9jb250cmFjdF9nZW4uZ29gCihgcGFja2FnZSBtb2xjb250cmFjdHNgKS4gRmlyc3QgcGFzcyBlbWl0cyAqKnN0YWJsZSBzY2FsYXIgc3RyaW5nIGNvbnN0YW50cyBvbmx5Kio6Cgp8IEdvIGNvbnN0IHwgRGVyaXZlZCBmcm9tIGNvbnRyYWN0IGZpZWxkIHwKfCAtLS0gfCAtLS0gfAp8IGBSZXF1aXJlZFRvb2xgIHwgYHJlcXVpcmVkX3Rvb2xgIHwKfCBgTUNQU2VydmVyTmFtZWAgfCBgbWNwX3NlcnZlcl9uYW1lYCB8CnwgYFNldHRpbmdzS2V5YCB8IGBrZXlgIHwKfCBgRGVmYXVsdFNldHRpbmdzUGF0aGAgfCBgc2V0dGluZ3NfcGF0aGAgfAp8IGBMb2FkZWRNQ1BUb29sc0ZpZWxkYCB8IGBsb2FkZWRfbWNwX3Rvb2xzX2ZpZWxkYCB8CnwgYFJ1bnRpbWVQcmVzZW50RmllbGRgIHwgYHJ1bnRpbWVfcHJlc2VudF9maWVsZGAgfAp8IGBMZWdhY3lCaW5hcnlQYXRoYCB8IGBsZWdhY3lfYmluYXJ5X3BhdGhgIHwKCiMjIEZvbGxvdy1vbnMgKFRPRE8g4oCUIG5vdCBpbiB0aGlzIHBhc3MpCgotICoqTmVzdGVkIGBydW50aW1lc2AgLyBgcG9ydGAgR28gdHlwZXMuKiogVGhpcyBmaXJzdCBwYXNzIGRlbGliZXJhdGVseSBkb2VzCiAgKipub3QqKiBtb2RlbCB0aGUgbmVzdGVkIGBydW50aW1lc2AgKHBlci1ydW50aW1lIHJlbmRlciB0YXJnZXRzKSBvciBgcG9ydGAKICAodGhlIE1DUC13aXJpbmcgaG9vay9pbXBsL3Byb2JlIHN1cmZhY2UpIG9iamVjdHMgYXMgR28gc3RydWN0cyDigJQgb25seSBzdGFibGUKICBzY2FsYXIgc3RyaW5nIGlkZW50aWZpZXJzLiBNb2RlbGluZyB0aGUgbmVzdGVkIHNoYXBlcyBpcyBhIGZvbGxvdy1vbi4KLSAqKlR5cGVTY3JpcHQgZ2VuZXJhdG9yKiog4oCUIGB0b29scy9nZW4tdHMubWpzYCDihpIgYGdlbi90cy9gLiBfVE9ETy5fCi0gKipQeXRob24gZ2VuZXJhdG9yKiog4oCUIGB0b29scy9nZW4tcHkubWpzYCAob3IgYGdlbl9weS5weWApIOKGkiBgZ2VuL3B5dGhvbi9gLgogIF9UT0RPLl8KLSAqKmNvcmUgY29uc3VtZXMgYGdlbi9nb2AuKiogSW4gYSBsYXRlciwgc2VwYXJhdGVseS1jb29yZGluYXRlZCBgbW9sZWN1bGUtY29yZWAKICBQUiAob3V0IG9mIHNjb3BlIGhlcmUg4oCUIHRoaXMgdGFzayBkb2VzIG5vdCB0b3VjaCBjb3JlKSwgY29yZSB3aWxsIGNvbnN1bWUKICBgZ2VuL2dvYCBmcm9tIHRoaXMgcmVwbyBpbnN0ZWFkIG9mIGhhbmQtbWFpbnRhaW5pbmcgaXRzIGxvY2FsCiAgYGNvbnRyYWN0cy9tY3AtcGx1Z2luLWRlbGl2ZXJ5LmNvbnRyYWN0Lmpzb25gIG1pcnJvciBhbmQgaXRzCiAgYGNvbmNpZXJnZVBsYXRmb3JtTUNQUmVxdWlyZWRUb29sYCBjb25zdGFudC4gVW50aWwgdGhhdCBsYW5kcywgdGhlIHR3byBjb3BpZXMKICBhcmUgYSBkZWxpYmVyYXRlbHktaWRlbnRpY2FsIHRlbXBvcmFyeSBwYWlyIChzZWUgYG1jcC9SRUFETUUubWRgKS4KCiMjIEFkZGluZyBhIGxhbmd1YWdlCgoxLiBBZGQgYHRvb2xzL2dlbi08bGFuZz4ubWpzYCB0aGF0IHJlYWRzIHRoZSBzYW1lIGBtY3AvKi5jb250cmFjdC5qc29uYAogICBpbnN0YW5jZShzKSBhbmQgKipkZXJpdmVzKiogZXZlcnkgdmFsdWUgKG5vIGhhcmRjb2RlZCBjb250cmFjdCB2YWx1ZXMpLgoyLiBXcml0ZSBvdXRwdXQgdW5kZXIgYGdlbi88bGFuZz4vYCB3aXRoIHRoZSBsYW5ndWFnZSdzIHN0YW5kYXJkCiAgICJnZW5lcmF0ZWQg4oCUIGRvIG5vdCBlZGl0IiBtYXJrZXIuCjMuIEV4dGVuZCBgLmdpdGVhL3dvcmtmbG93cy9jb2RlZ2VuLWRyaWZ0LnltbGAgdG8gcnVuIHRoZSBuZXcgZ2VuZXJhdG9yIGJlZm9yZQogICB0aGUgYGdpdCBkaWZmIC0tZXhpdC1jb2RlIC0tIGdlbi9gIGNoZWNrIHNvIHRoZSBuZXcgbGFuZ3VhZ2UgaXMgZHJpZnQtZ2F0ZWQKICAgdG9vLgo=
+# tools/ — codegen + validation
+
+Codegen and validation scripts for `molecule-contracts`. Implements P2 of RFC
+[molecule-core#3285](https://git.moleculesai.app/molecule-ai/molecule-core/issues/3285)
+("Tool-Contract SSOT & Codegen Architecture"), §7 (one check per invariant) and
+§14 (no silent regression).
+
+## The pipeline
+
+```
+mcp/*.contract.json   ── validated against ──►  mcp/*.schema.json
+       │  (the canonical IDL instance / data)        (JSON-Schema draft 2020-12)
+       │
+       ▼  codegen (tools/gen-go.mjs)
+gen/<lang>/...        ── generated typed bindings; NEVER hand-edited
+```
+
+- The **`*.contract.json`** instance is the canonical data (the IDL instance).
+- The **`*.schema.json`** describes its shape and pins invariants (e.g.
+  `required_tool` is pinned with `"const": "provision_workspace"`).
+- **Codegen reads the contract instance** and emits language bindings into
+  `gen/<lang>/`. The generator **derives every value from the contract JSON** —
+  there are no hardcoded contract values in the generator itself. That is the
+  whole point: rename the verb in the contract and the generated binding changes
+  with it (and schema validation fails first if the rename violates a `const`).
+
+## `gen/` is NEVER hand-edited
+
+Files under `gen/` are generated output. They carry the standard Go
+`// Code generated by ... — DO NOT EDIT.` marker. **Never edit them by hand.**
+The drift gate enforces this mechanically (see below).
+
+To regenerate after a contract change:
+
+```sh
+node tools/gen-go.mjs        # rewrites gen/go/contract_gen.go
+```
+
+## CI gates (`.gitea/workflows/`)
+
+Two fail-closed gates back this pipeline. They become active once Gitea Actions
+is enabled on the repo (Settings → Actions).
+
+| Workflow | Invariant (RFC §) | What it does |
+| --- | --- | --- |
+| `validate-contracts.yml` | §7 — schema conformance | For every `mcp/*.contract.json`, validates it against its sibling `mcp/*.schema.json` with `check-jsonschema`. Fails on any invalid instance or any contract missing its schema. This is what makes the `const` pin load-bearing in CI. |
+| `codegen-drift.yml` | §14 — no silent regression | Re-runs the generator and `git diff --exit-code -- gen/`. Fails if the committed generated output differs from a fresh regeneration (i.e. `gen/` was hand-edited or left stale). |
+
+## Generators
+
+### `gen-go.mjs` (Go) — implemented
+
+Reads `mcp/mcp-plugin-delivery.contract.json` and emits `gen/go/contract_gen.go`
+(`package molcontracts`). First pass emits **stable scalar string constants only**:
+
+| Go const | Derived from contract field |
+| --- | --- |
+| `RequiredTool` | `required_tool` |
+| `MCPServerName` | `mcp_server_name` |
+| `SettingsKey` | `key` |
+| `DefaultSettingsPath` | `settings_path` |
+| `LoadedMCPToolsField` | `loaded_mcp_tools_field` |
+| `RuntimePresentField` | `runtime_present_field` |
+| `LegacyBinaryPath` | `legacy_binary_path` |
+
+## Follow-ons (TODO — not in this pass)
+
+- **Nested `runtimes` / `port` Go types.** This first pass deliberately does
+  **not** model the nested `runtimes` (per-runtime render targets) or `port`
+  (the MCP-wiring hook/impl/probe surface) objects as Go structs — only stable
+  scalar string identifiers. Modeling the nested shapes is a follow-on.
+- **TypeScript generator** — `tools/gen-ts.mjs` → `gen/ts/`. _TODO._
+- **Python generator** — `tools/gen-py.mjs` (or `gen_py.py`) → `gen/python/`.
+  _TODO._
+- **core consumes `gen/go`.** In a later, separately-coordinated `molecule-core`
+  PR (out of scope here — this task does not touch core), core will consume
+  `gen/go` from this repo instead of hand-maintaining its local
+  `contracts/mcp-plugin-delivery.contract.json` mirror and its
+  `conciergePlatformMCPRequiredTool` constant. Until that lands, the two copies
+  are a deliberately-identical temporary pair (see `mcp/README.md`).
+
+## Adding a language
+
+1. Add `tools/gen-<lang>.mjs` that reads the same `mcp/*.contract.json`
+   instance(s) and **derives** every value (no hardcoded contract values).
+2. Write output under `gen/<lang>/` with the language's standard
+   "generated — do not edit" marker.
+3. Extend `.gitea/workflows/codegen-drift.yml` to run the new generator before
+   the `git diff --exit-code -- gen/` check so the new language is drift-gated
+   too.
