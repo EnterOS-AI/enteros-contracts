@@ -1,10 +1,14 @@
 # Codegen drift gate (RFC molecule-core#3285 §14: no silent regression).
 #
 # Invariant enforced here: the committed generated bindings under `gen/` are
-# EXACTLY what the generator produces from the current contract instance — never
-# hand-edited, never stale. The job re-runs the generator and `git diff
-# --exit-code -- gen/`. If the committed output differs from a fresh regen, the
-# job fails closed. This makes "gen/ is never hand-edited" mechanically true.
+# EXACTLY what the generators produce from the current contract instance — never
+# hand-edited, never stale. The job re-runs ALL generators (Go, TS, Python) and
+# `git diff --exit-code -- gen/`. If the committed output differs from a fresh
+# regen, the job fails closed. This makes "gen/ is never hand-edited"
+# mechanically true for every language.
+#
+# All three generators are Node `.mjs` scripts on purpose, so this gate needs
+# only `node` — no Go or Python toolchain in CI.
 name: codegen-drift
 
 on:
@@ -13,7 +17,7 @@ on:
   pull_request:
 
 jobs:
-  go-codegen-drift:
+  codegen-drift:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -27,14 +31,21 @@ jobs:
       - name: Regenerate Go bindings from the contract
         run: node tools/gen-go.mjs
 
+      - name: Regenerate TypeScript bindings from the contract
+        run: node tools/gen-ts.mjs
+
+      - name: Regenerate Python bindings from the contract
+        run: node tools/gen-python.mjs
+
       - name: Fail if committed gen/ differs from a fresh regeneration
         shell: bash
         run: |
           set -euo pipefail
           if ! git diff --exit-code -- gen/; then
             echo "::error::gen/ is out of date — the committed generated bindings differ from a fresh"
-            echo "::error::run of tools/gen-go.mjs. gen/ is NEVER hand-edited. Regenerate locally with"
-            echo "::error::'node tools/gen-go.mjs' and commit the result."
+            echo "::error::run of the generators. gen/ is NEVER hand-edited. Regenerate locally with"
+            echo "::error::'node tools/gen-go.mjs && node tools/gen-ts.mjs && node tools/gen-python.mjs'"
+            echo "::error::and commit the result."
             exit 1
           fi
           echo "gen/ is in sync with the contract (no drift)"
