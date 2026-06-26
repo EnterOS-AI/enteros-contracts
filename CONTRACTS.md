@@ -25,14 +25,27 @@ for the why and the tier model.
 ## Validate / codegen direction
 
 ```
-*.schema.json  ──►  codegen  ──►  gen/  (Go / TS / Python typed bindings)
-                                   └─ generated output; NEVER hand-edited
+*.contract.json  ──validate──►  *.schema.json
+       │  (the canonical IDL instance / data)
+       ▼  codegen (tools/gen-*.mjs)
+gen/  (Go / TS / Python typed bindings)
+  └─ generated output; NEVER hand-edited
 ```
 
 - Generated bindings land in **`gen/`** and are **never hand-edited**.
-- A **regenerate-and-diff CI gate** will enforce **no drift** between the schemas/instances
-  and the generated `gen/` output (regenerate in CI, fail if the working tree differs).
-  *(To be built next — P2.)*
-- Until that gate lands, the `molecule-core` copy of `mcp-plugin-delivery.contract.json`
-  remains a deliberately-identical temporary mirror; the intended direction is for core to
-  consume / regenerate from here. Do not diverge the two copies.
+- Codegen + validation scripts live in **`tools/`** — see [`tools/README.md`](./tools/README.md).
+
+### CI gates (`.gitea/workflows/`)
+
+Two fail-closed gates, one per invariant (RFC §7), back this direction. They are active once
+Gitea Actions is enabled on the repo (Settings → Actions).
+
+| Workflow | Invariant | What it enforces |
+| --- | --- | --- |
+| [`validate-contracts.yml`](./.gitea/workflows/validate-contracts.yml) | RFC §7 — schema conformance | Every `mcp/*.contract.json` validates against its sibling `mcp/*.schema.json` (`check-jsonschema`). Fail-closed on any invalid instance or any missing schema. This makes the `required_tool` `const` pin load-bearing in CI — renaming the verb fails here. |
+| [`codegen-drift.yml`](./.gitea/workflows/codegen-drift.yml) | RFC §14 — no silent regression | Re-runs the generator and `git diff --exit-code -- gen/`. Fail-closed if the committed generated output differs from a fresh regeneration (i.e. `gen/` was hand-edited or left stale). |
+
+- The `molecule-core` copy of `mcp-plugin-delivery.contract.json` remains a
+  deliberately-identical temporary mirror; the intended direction is for core to consume /
+  regenerate from `gen/` here in a later, separately-coordinated core PR (out of scope here).
+  Do not diverge the two copies.

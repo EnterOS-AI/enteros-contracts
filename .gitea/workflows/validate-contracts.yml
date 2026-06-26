@@ -1,0 +1,59 @@
+# Schema-validation gate (RFC molecule-core#3285 §7: one check per invariant).
+#
+# Invariant enforced here: every `mcp/*.contract.json` instance MUST validate
+# against its sibling `mcp/*.schema.json`. This is what makes the schema `const`
+# pin load-bearing in CI — a future edit renaming `required_tool` away from
+# `provision_workspace` fails the schema's `"const"` and this job goes red (the
+# #3082 phantom-verb regression class). Fail-closed: any invalid instance OR any
+# contract missing its schema is a non-zero exit.
+name: validate-contracts
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  schema-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install check-jsonschema
+        run: pip install --no-cache-dir check-jsonschema
+
+      - name: Validate every mcp/*.contract.json against its sibling schema
+        shell: bash
+        run: |
+          set -euo pipefail
+          shopt -s nullglob
+          contracts=(mcp/*.contract.json)
+          if [ ${#contracts[@]} -eq 0 ]; then
+            echo "::error::no mcp/*.contract.json instances found — nothing to validate (fail-closed)"
+            exit 1
+          fi
+          rc=0
+          for instance in "${contracts[@]}"; do
+            schema="${instance%.contract.json}.schema.json"
+            if [ ! -f "$schema" ]; then
+              echo "::error file=$instance::missing sibling schema $schema (fail-closed)"
+              rc=1
+              continue
+            fi
+            echo "validating $instance  against  $schema"
+            if ! check-jsonschema --schemafile "$schema" "$instance"; then
+              echo "::error file=$instance::failed schema validation against $schema"
+              rc=1
+            fi
+          done
+          if [ "$rc" -ne 0 ]; then
+            echo "::error::one or more contract instances failed schema validation"
+            exit 1
+          fi
+          echo "all contract instances validate against their schemas"

@@ -1,0 +1,40 @@
+# Codegen drift gate (RFC molecule-core#3285 §14: no silent regression).
+#
+# Invariant enforced here: the committed generated bindings under `gen/` are
+# EXACTLY what the generator produces from the current contract instance — never
+# hand-edited, never stale. The job re-runs the generator and `git diff
+# --exit-code -- gen/`. If the committed output differs from a fresh regen, the
+# job fails closed. This makes "gen/ is never hand-edited" mechanically true.
+name: codegen-drift
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  go-codegen-drift:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Regenerate Go bindings from the contract
+        run: node tools/gen-go.mjs
+
+      - name: Fail if committed gen/ differs from a fresh regeneration
+        shell: bash
+        run: |
+          set -euo pipefail
+          if ! git diff --exit-code -- gen/; then
+            echo "::error::gen/ is out of date — the committed generated bindings differ from a fresh"
+            echo "::error::run of tools/gen-go.mjs. gen/ is NEVER hand-edited. Regenerate locally with"
+            echo "::error::'node tools/gen-go.mjs' and commit the result."
+            exit 1
+          fi
+          echo "gen/ is in sync with the contract (no drift)"
