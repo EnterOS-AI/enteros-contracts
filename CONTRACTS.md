@@ -1,1 +1,51 @@
-IyBDb250cmFjdHMgaW5kZXgKCkNhbm9uaWNhbCBjb250cmFjdHMgaG9zdGVkIGluIHRoaXMgcmVwby4gU1NPVCBmb3IgdGhlIE1vbGVjdWxlIHRvb2wvY2FwYWJpbGl0eSBjb250cmFjdHMsCnBlciBSRkMgW21vbGVjdWxlLWNvcmUjMzI4NV0oaHR0cHM6Ly9naXQubW9sZWN1bGVzYWkuYXBwL21vbGVjdWxlLWFpL21vbGVjdWxlLWNvcmUvaXNzdWVzLzMyODUpCigiVG9vbC1Db250cmFjdCBTU09UICYgQ29kZWdlbiBBcmNoaXRlY3R1cmUiKS4gU2VlIHRoZSB0b3AtbGV2ZWwgW2BSRUFETUUubWRgXSguL1JFQURNRS5tZCkKZm9yIHRoZSB3aHkgYW5kIHRoZSB0aWVyIG1vZGVsLgoKIyMgQ29udHJhY3RzCgp8IENvbnRyYWN0IHwgU3VyZmFjZSBkaXIgfCBTY2hlbWEgfCBJbnN0YW5jZSB8IEdvdmVybnMgfAp8IC0tLSB8IC0tLSB8IC0tLSB8IC0tLSB8IC0tLSB8CnwgYG1jcC1wbHVnaW4tZGVsaXZlcnlgIHwgYG1jcC9gIHwgW2BtY3AvbWNwLXBsdWdpbi1kZWxpdmVyeS5zY2hlbWEuanNvbmBdKC4vbWNwL21jcC1wbHVnaW4tZGVsaXZlcnkuc2NoZW1hLmpzb24pIHwgW2BtY3AvbWNwLXBsdWdpbi1kZWxpdmVyeS5jb250cmFjdC5qc29uYF0oLi9tY3AvbWNwLXBsdWdpbi1kZWxpdmVyeS5jb250cmFjdC5qc29uKSB8IENvbmNpZXJnZSBtYW5hZ2VtZW50LU1DUCBkZXNjcmlwdG9yIGRlbGl2ZXJ5ICsgdGhlIHNpbmd1bGFyIGByZXF1aXJlZF90b29sYCAoYHByb3Zpc2lvbl93b3Jrc3BhY2VgKSB0aGUgZGVncmFkZSBnYXRlIGVuZm9yY2VzLiBTZWUgW2BtY3AvUkVBRE1FLm1kYF0oLi9tY3AvUkVBRE1FLm1kKS4gfAoKIyMgSURMIGNvbnZlbnRpb24KCi0gKipJREw6IEpTT04tU2NoZW1hLCBkcmFmdCAyMDIwLTEyKiogKFJGQyDCpzE1IGRlY2lzaW9uKS4KLSAqKk9uZSBgKi5zY2hlbWEuanNvbmAgKyBvbmUgYCouY29udHJhY3QuanNvbmAgaW5zdGFuY2UgcGVyIGNvbnRyYWN0KiosIGJvdGggdW5kZXIgdGhlCiAgY29udHJhY3QncyBzdXJmYWNlIGRpcmVjdG9yeSAoYG1jcC9gLCBsYXRlciBgdGVtcGxhdGVzL2AsIGV0Yy4pLgotIFRoZSBgKi5zY2hlbWEuanNvbmAgZGVzY3JpYmVzIHRoZSBzaGFwZTsgdGhlIGAqLmNvbnRyYWN0Lmpzb25gIGlzIHRoZSBjYW5vbmljYWwgZGF0YSB0aGUKICBzY2hlbWEgdmFsaWRhdGVzLiBUaGUgaW5zdGFuY2UgTVVTVCB2YWxpZGF0ZSBhZ2FpbnN0IGl0cyBzY2hlbWEuCi0gKipObyByZW5hbWUgb2YgZXhpc3RpbmcgdmVyYnMuKiogVG9vbCB2ZXJicyAoZS5nLiBgcHJvdmlzaW9uX3dvcmtzcGFjZWApIGFyZQogIGNhbm9uaWNhbGl6ZWQgYW5kIG1pZ3JhdGVkIDE6MSDigJQgcmVuYW1pbmcgaXMgdGhlIHJlZ3Jlc3Npb24gY2xhc3MgUkZDIMKnMTUgZmxhZ2dlZCAodGhlCiAgYCMzMDgyYCBwaGFudG9tLXZlcmIgaW5jaWRlbnQpLiBgcmVxdWlyZWRfdG9vbGAgaXMgcGlubmVkIGluLXNjaGVtYSB2aWEgYGNvbnN0YC4KCiMjIFZhbGlkYXRlIC8gY29kZWdlbiBkaXJlY3Rpb24KCmBgYAoqLmNvbnRyYWN0Lmpzb24gIOKUgOKUgHZhbGlkYXRl4pSA4pSA4pa6ICAqLnNjaGVtYS5qc29uCiAgICAgICDilIIgICh0aGUgY2Fub25pY2FsIElETCBpbnN0YW5jZSAvIGRhdGEpCiAgICAgICDilrwgIGNvZGVnZW4gKHRvb2xzL2dlbi0qLm1qcykKZ2VuLyAgKEdvIC8gVFMgLyBQeXRob24gdHlwZWQgYmluZGluZ3MpCiAg4pSU4pSAIGdlbmVyYXRlZCBvdXRwdXQ7IE5FVkVSIGhhbmQtZWRpdGVkCmBgYAoKLSBHZW5lcmF0ZWQgYmluZGluZ3MgbGFuZCBpbiAqKmBnZW4vYCoqIGFuZCBhcmUgKipuZXZlciBoYW5kLWVkaXRlZCoqLgotIENvZGVnZW4gKyB2YWxpZGF0aW9uIHNjcmlwdHMgbGl2ZSBpbiAqKmB0b29scy9gKiog4oCUIHNlZSBbYHRvb2xzL1JFQURNRS5tZGBdKC4vdG9vbHMvUkVBRE1FLm1kKS4KCiMjIyBDSSBnYXRlcyAoYC5naXRlYS93b3JrZmxvd3MvYCkKClR3byBmYWlsLWNsb3NlZCBnYXRlcywgb25lIHBlciBpbnZhcmlhbnQgKFJGQyDCpzcpLCBiYWNrIHRoaXMgZGlyZWN0aW9uLiBUaGV5IGFyZSBhY3RpdmUgb25jZQpHaXRlYSBBY3Rpb25zIGlzIGVuYWJsZWQgb24gdGhlIHJlcG8gKFNldHRpbmdzIOKGkiBBY3Rpb25zKS4KCnwgV29ya2Zsb3cgfCBJbnZhcmlhbnQgfCBXaGF0IGl0IGVuZm9yY2VzIHwKfCAtLS0gfCAtLS0gfCAtLS0gfAp8IFtgdmFsaWRhdGUtY29udHJhY3RzLnltbGBdKC4vLmdpdGVhL3dvcmtmbG93cy92YWxpZGF0ZS1jb250cmFjdHMueW1sKSB8IFJGQyDCpzcg4oCUIHNjaGVtYSBjb25mb3JtYW5jZSB8IEV2ZXJ5IGBtY3AvKi5jb250cmFjdC5qc29uYCB2YWxpZGF0ZXMgYWdhaW5zdCBpdHMgc2libGluZyBgbWNwLyouc2NoZW1hLmpzb25gIChgY2hlY2stanNvbnNjaGVtYWApLiBGYWlsLWNsb3NlZCBvbiBhbnkgaW52YWxpZCBpbnN0YW5jZSBvciBhbnkgbWlzc2luZyBzY2hlbWEuIFRoaXMgbWFrZXMgdGhlIGByZXF1aXJlZF90b29sYCBgY29uc3RgIHBpbiBsb2FkLWJlYXJpbmcgaW4gQ0kg4oCUIHJlbmFtaW5nIHRoZSB2ZXJiIGZhaWxzIGhlcmUuIHwKfCBbYGNvZGVnZW4tZHJpZnQueW1sYF0oLi8uZ2l0ZWEvd29ya2Zsb3dzL2NvZGVnZW4tZHJpZnQueW1sKSB8IFJGQyDCpzE0IOKAlCBubyBzaWxlbnQgcmVncmVzc2lvbiB8IFJlLXJ1bnMgdGhlIGdlbmVyYXRvciBhbmQgYGdpdCBkaWZmIC0tZXhpdC1jb2RlIC0tIGdlbi9gLiBGYWlsLWNsb3NlZCBpZiB0aGUgY29tbWl0dGVkIGdlbmVyYXRlZCBvdXRwdXQgZGlmZmVycyBmcm9tIGEgZnJlc2ggcmVnZW5lcmF0aW9uIChpLmUuIGBnZW4vYCB3YXMgaGFuZC1lZGl0ZWQgb3IgbGVmdCBzdGFsZSkuIHwKCi0gVGhlIGBtb2xlY3VsZS1jb3JlYCBjb3B5IG9mIGBtY3AtcGx1Z2luLWRlbGl2ZXJ5LmNvbnRyYWN0Lmpzb25gIHJlbWFpbnMgYQogIGRlbGliZXJhdGVseS1pZGVudGljYWwgdGVtcG9yYXJ5IG1pcnJvcjsgdGhlIGludGVuZGVkIGRpcmVjdGlvbiBpcyBmb3IgY29yZSB0byBjb25zdW1lIC8KICByZWdlbmVyYXRlIGZyb20gYGdlbi9gIGhlcmUgaW4gYSBsYXRlciwgc2VwYXJhdGVseS1jb29yZGluYXRlZCBjb3JlIFBSIChvdXQgb2Ygc2NvcGUgaGVyZSkuCiAgRG8gbm90IGRpdmVyZ2UgdGhlIHR3byBjb3BpZXMuCg==
+# Contracts index
+
+Canonical contracts hosted in this repo. SSOT for the Molecule tool/capability contracts,
+per RFC [molecule-core#3285](https://git.moleculesai.app/molecule-ai/molecule-core/issues/3285)
+("Tool-Contract SSOT & Codegen Architecture"). See the top-level [`README.md`](./README.md)
+for the why and the tier model.
+
+## Contracts
+
+| Contract | Surface dir | Schema | Instance | Governs |
+| --- | --- | --- | --- | --- |
+| `mcp-plugin-delivery` | `mcp/` | [`mcp/mcp-plugin-delivery.schema.json`](./mcp/mcp-plugin-delivery.schema.json) | [`mcp/mcp-plugin-delivery.contract.json`](./mcp/mcp-plugin-delivery.contract.json) | Concierge management-MCP descriptor delivery + the singular `required_tool` (`provision_workspace`) the degrade gate enforces. See [`mcp/README.md`](./mcp/README.md). |
+
+## IDL convention
+
+- **IDL: JSON-Schema, draft 2020-12** (RFC §15 decision).
+- **One `*.schema.json` + one `*.contract.json` instance per contract**, both under the
+  contract's surface directory (`mcp/`, later `templates/`, etc.).
+- The `*.schema.json` describes the shape; the `*.contract.json` is the canonical data the
+  schema validates. The instance MUST validate against its schema.
+- **No rename of existing verbs.** Tool verbs (e.g. `provision_workspace`) are
+  canonicalized and migrated 1:1 — renaming is the regression class RFC §15 flagged (the
+  `#3082` phantom-verb incident). `required_tool` is pinned in-schema via `const`.
+
+## Validate / codegen direction
+
+```
+*.contract.json  ──validate──►  *.schema.json
+       │  (the canonical IDL instance / data)
+       ▼  codegen (tools/gen-*.mjs)
+gen/  (Go / TS / Python typed bindings)
+  └─ generated output; NEVER hand-edited
+```
+
+- Generated bindings land in **`gen/`** and are **never hand-edited**.
+- Codegen + validation scripts live in **`tools/`** — see [`tools/README.md`](./tools/README.md).
+
+### CI gates (`.gitea/workflows/`)
+
+Two fail-closed gates, one per invariant (RFC §7), back this direction. They are active once
+Gitea Actions is enabled on the repo (Settings → Actions).
+
+| Workflow | Invariant | What it enforces |
+| --- | --- | --- |
+| [`validate-contracts.yml`](./.gitea/workflows/validate-contracts.yml) | RFC §7 — schema conformance | Every `mcp/*.contract.json` validates against its sibling `mcp/*.schema.json` (`check-jsonschema`). Fail-closed on any invalid instance or any missing schema. This makes the `required_tool` `const` pin load-bearing in CI — renaming the verb fails here. |
+| [`codegen-drift.yml`](./.gitea/workflows/codegen-drift.yml) | RFC §14 — no silent regression | Re-runs the generator and `git diff --exit-code -- gen/`. Fail-closed if the committed generated output differs from a fresh regeneration (i.e. `gen/` was hand-edited or left stale). |
+
+- The `molecule-core` copy of `mcp-plugin-delivery.contract.json` remains a
+  deliberately-identical temporary mirror; the intended direction is for core to consume /
+  regenerate from `gen/` here in a later, separately-coordinated core PR (out of scope here).
+  Do not diverge the two copies.
