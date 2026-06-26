@@ -1,1 +1,116 @@
-IyEvdXNyL2Jpbi9lbnYgbm9kZQovLyBnZW4tZ28ubWpzIOKAlCBnZW5lcmF0ZSBHbyBiaW5kaW5ncyBmcm9tIHRoZSBNQ1AgcGx1Z2luLWRlbGl2ZXJ5IGNvbnRyYWN0IElETC4KLy8KLy8gSU1QT1JUQU5UICh0aGUgd2hvbGUgcG9pbnQgb2YgdGhpcyBnZW5lcmF0b3IpOgovLyAgIEV2ZXJ5IGVtaXR0ZWQgY29uc3RhbnQgVkFMVUUgaXMgREVSSVZFRCBmcm9tIHRoZSBjb250cmFjdCBKU09OIGluc3RhbmNlIGF0Ci8vICAgYG1jcC9tY3AtcGx1Z2luLWRlbGl2ZXJ5LmNvbnRyYWN0Lmpzb25gLiBOT1RISU5HIGlzIGhhcmRjb2RlZCBoZXJlIOKAlCB0aGVyZSBpcwovLyAgIGRlbGliZXJhdGVseSBubyBzdHJpbmcgbGl0ZXJhbCAicHJvdmlzaW9uX3dvcmtzcGFjZSIgKG9yIGFueSBvdGhlciBjb250cmFjdAovLyAgIHZhbHVlKSBhbnl3aGVyZSBpbiB0aGlzIGZpbGUuIFJlbmFtZSB0aGUgdmVyYiBpbiB0aGUgY29udHJhY3QgYW5kIHJlLXJ1biwgYW5kCi8vICAgdGhlIGdlbmVyYXRlZCBgUmVxdWlyZWRUb29sYCBjaGFuZ2VzIHdpdGggaXQuIFRoYXQgaXMgd2hhdCBtYWtlcyB0aGUgc2NoZW1hCi8vICAgYGNvbnN0YCBwaW4gKyB0aGUgdmFsaWRhdGUgQ0kgKyB0aGUgZHJpZnQgZ2F0ZSBsb2FkLWJlYXJpbmcgZW5kIHRvIGVuZC4KLy8KLy8gVXNhZ2U6Ci8vICAgbm9kZSB0b29scy9nZW4tZ28ubWpzICAgICAgICAgICAgIyB3cml0ZSBnZW4vZ28vY29udHJhY3RfZ2VuLmdvCi8vICAgbm9kZSB0b29scy9nZW4tZ28ubWpzIC0tY2hlY2sgICAgIyBwcmludCB0byBzdGRvdXQsIGRvIG5vdCB3cml0ZSAoZGVidWcpCi8vCi8vIFJ1biBmcm9tIHRoZSByZXBvIHJvb3QgKHBhdGhzIGJlbG93IGFyZSByZXNvbHZlZCByZWxhdGl2ZSB0byB0aGlzIGZpbGUncwovLyBsb2NhdGlvbiwgc28gY3dkIGRvZXMgbm90IG1hdHRlcikuCgppbXBvcnQgeyByZWFkRmlsZVN5bmMsIHdyaXRlRmlsZVN5bmMsIG1rZGlyU3luYyB9IGZyb20gIm5vZGU6ZnMiOwppbXBvcnQgeyBkaXJuYW1lLCByZXNvbHZlIH0gZnJvbSAibm9kZTpwYXRoIjsKaW1wb3J0IHsgZmlsZVVSTFRvUGF0aCB9IGZyb20gIm5vZGU6dXJsIjsKCmNvbnN0IGhlcmUgPSBkaXJuYW1lKGZpbGVVUkxUb1BhdGgoaW1wb3J0Lm1ldGEudXJsKSk7CmNvbnN0IHJlcG9Sb290ID0gcmVzb2x2ZShoZXJlLCAiLi4iKTsKCmNvbnN0IENPTlRSQUNUX1BBVEggPSByZXNvbHZlKHJlcG9Sb290LCAibWNwL21jcC1wbHVnaW4tZGVsaXZlcnkuY29udHJhY3QuanNvbiIpOwpjb25zdCBPVVRfUEFUSCA9IHJlc29sdmUocmVwb1Jvb3QsICJnZW4vZ28vY29udHJhY3RfZ2VuLmdvIik7CgovLyAtLS0gcmVhZCB0aGUgY2Fub25pY2FsIElETCBpbnN0YW5jZSAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCmNvbnN0IHJhdyA9IHJlYWRGaWxlU3luYyhDT05UUkFDVF9QQVRILCAidXRmOCIpOwpsZXQgY29udHJhY3Q7CnRyeSB7CiAgY29udHJhY3QgPSBKU09OLnBhcnNlKHJhdyk7Cn0gY2F0Y2ggKGVycikgewogIGNvbnNvbGUuZXJyb3IoYGdlbi1nbzogJHtDT05UUkFDVF9QQVRIfSBpcyBub3QgdmFsaWQgSlNPTjogJHtlcnIubWVzc2FnZX1gKTsKICBwcm9jZXNzLmV4aXQoMSk7Cn0KCi8vIC0tLSBkZXJpdmUgdGhlIHNjYWxhciBzdHJpbmcgY29uc3RhbnRzIHdlIGV4cG9zZSAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCi8vIEVhY2ggZW50cnkgbWFwcyBhIEdvIGNvbnN0IGlkZW50aWZpZXIgdG8gdGhlIGNvbnRyYWN0IGZpZWxkIGl0IGlzIERFUklWRUQgZnJvbS4KLy8gV2Uga2VlcCB0aGlzIHRvIHN0YWJsZSBzY2FsYXIgc3RyaW5nIGlkZW50aWZpZXJzIG9ubHkuIFRoZSBuZXN0ZWQgYHJ1bnRpbWVzYAovLyAvIGBwb3J0YCBvYmplY3RzIGFyZSBpbnRlbnRpb25hbGx5IE5PVCBtb2RlbGVkIGFzIEdvIHR5cGVzIGluIHRoaXMgZmlyc3QgcGFzcwovLyAoc2VlIHRvb2xzL1JFQURNRS5tZCAiRm9sbG93LW9ucyIpLgpjb25zdCBTQ0FMQVJfQ09OU1RTID0gWwogIC8vIEdvIGNvbnN0IG5hbWUgICAgICAgICAgIGNvbnRyYWN0IGZpZWxkICAgICAgICAgICAgIGRvYwogIFsiUmVxdWlyZWRUb29sIiwgInJlcXVpcmVkX3Rvb2wiLAogICAgInRoZSBzaW5ndWxhciB0b29sIHZlcmIgdGhlIGNvbmNpZXJnZSBtYW5hZ2VtZW50IE1DUCBtdXN0IGV4cG9zZTsgdGhlIGRlZ3JhZGUgZ2F0ZSBmYWlscyBjbG9zZWQgaWYgaXQgaXMgYWJzZW50IG9uIHRoZSBsaXZlIHN1cmZhY2UgKHRoZSAjMzA4MiBwaGFudG9tLXZlcmIgaW52YXJpYW50KS4iXSwKICBbIk1DUFNlcnZlck5hbWUiLCAibWNwX3NlcnZlcl9uYW1lIiwKICAgICJsb2dpY2FsIG5hbWUgb2YgdGhlIG1hbmFnZW1lbnQtbW9kZSBNQ1Agc2VydmVyIGRlc2NyaXB0b3IuIl0sCiAgWyJTZXR0aW5nc0tleSIsICJrZXkiLAogICAgInRvcC1sZXZlbCBrZXkgaW5zaWRlIHRoZSBzZXR0aW5ncyBmaWxlIHVuZGVyIHdoaWNoIE1DUCBzZXJ2ZXJzIGFyZSBkZWNsYXJlZC4iXSwKICBbIkRlZmF1bHRTZXR0aW5nc1BhdGgiLCAic2V0dGluZ3NfcGF0aCIsCiAgICAiZGVmYXVsdCAoY2xhdWRlX2NvZGUpIHNldHRpbmdzIGZpbGUgcGF0aCB0aGUgcmVuZGVyZWQgTUNQIGRlc2NyaXB0b3IgaXMgd3JpdHRlbiB0by4iXSwKICBbIkxvYWRlZE1DUFRvb2xzRmllbGQiLCAibG9hZGVkX21jcF90b29sc19maWVsZCIsCiAgICAibmFtZSBvZiB0aGUgZmllbGQgcmVwb3J0aW5nIHRoZSBzZXQgb2YgdG9vbHMgYWN0dWFsbHkgbG9hZGVkIGZyb20gdGhlIE1DUCBzZXJ2ZXIuIl0sCiAgWyJSdW50aW1lUHJlc2VudEZpZWxkIiwgInJ1bnRpbWVfcHJlc2VudF9maWVsZCIsCiAgICAibmFtZSBvZiB0aGUgcnVudGltZS1yZXBvcnRlZCBib29sZWFuIGZpZWxkIGluZGljYXRpbmcgdGhlIE1DUCBzZXJ2ZXIgaXMgcHJlc2VudC4iXSwKICBbIkxlZ2FjeUJpbmFyeVBhdGgiLCAibGVnYWN5X2JpbmFyeV9wYXRoIiwKICAgICJmaWxlc3lzdGVtIHBhdGggb2YgdGhlIGxlZ2FjeSBNQ1Agc2VydmVyIGJpbmFyeSBvbGRlciBwcmVzZW5jZSBwcm9iZXMgY2hlY2tlZC4iXSwKXTsKCmNvbnN0IGRlcml2ZWQgPSBbXTsKZm9yIChjb25zdCBbZ29OYW1lLCBmaWVsZCwgZG9jXSBvZiBTQ0FMQVJfQ09OU1RTKSB7CiAgY29uc3QgdmFsdWUgPSBjb250cmFjdFtmaWVsZF07CiAgaWYgKHR5cGVvZiB2YWx1ZSAhPT0gInN0cmluZyIpIHsKICAgIGNvbnNvbGUuZXJyb3IoCiAgICAgIGBnZW4tZ286IGNvbnRyYWN0IGZpZWxkICcke2ZpZWxkfScgaXMgbWlzc2luZyBvciBub3QgYSBzdHJpbmcgKGdvdCAke0pTT04uc3RyaW5naWZ5KHZhbHVlKX0pOyBgICsKICAgICAgYGNhbm5vdCBkZXJpdmUgR28gY29uc3QgJHtnb05hbWV9LiBUaGUgY29udHJhY3QgaW5zdGFuY2UgbXVzdCB2YWxpZGF0ZSBhZ2FpbnN0IHRoZSBzY2hlbWEgZmlyc3QuYAogICAgKTsKICAgIHByb2Nlc3MuZXhpdCgxKTsKICB9CiAgZGVyaXZlZC5wdXNoKHsgZ29OYW1lLCBmaWVsZCwgZG9jLCB2YWx1ZSB9KTsKfQoKLy8gLS0tIGVzY2FwZSBhIGRlcml2ZWQgdmFsdWUgZm9yIHNhZmUgZW1iZWRkaW5nIGluIGEgR28gc3RyaW5nIGxpdGVyYWwgLS0tLS0tLS0KZnVuY3Rpb24gZ29TdHJpbmdMaXRlcmFsKHMpIHsKICByZXR1cm4gSlNPTi5zdHJpbmdpZnkocyk7IC8vIEdvIGFuZCBKU09OIHNoYXJlIGRvdWJsZS1xdW90ZWQgZXNjYXBlIHNlbWFudGljcyBmb3IgdGhlc2UgdmFsdWVzLgp9CgovLyAtLS0gZW1pdCAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCmNvbnN0IGxpbmVzID0gW107CmxpbmVzLnB1c2goIi8vIENvZGUgZ2VuZXJhdGVkIGJ5IHRvb2xzL2dlbi1nby5tanMg4oCUIERPIE5PVCBFRElULiIpOwpsaW5lcy5wdXNoKCIvLyIpOwpsaW5lcy5wdXNoKCIvLyBTb3VyY2Ugb2YgdHJ1dGg6IG1jcC9tY3AtcGx1Z2luLWRlbGl2ZXJ5LmNvbnRyYWN0Lmpzb24gKHZhbGlkYXRlZCBhZ2FpbnN0Iik7CmxpbmVzLnB1c2goIi8vIG1jcC9tY3AtcGx1Z2luLWRlbGl2ZXJ5LnNjaGVtYS5qc29uKS4gRXZlcnkgdmFsdWUgYmVsb3cgaXMgREVSSVZFRCBmcm9tIHRoYXQiKTsKbGluZXMucHVzaCgiLy8gY29udHJhY3QgaW5zdGFuY2UsIG5ldmVyIGhhbmQtd3JpdHRlbi4gUmVnZW5lcmF0ZSB3aXRoOiIpOwpsaW5lcy5wdXNoKCIvLyIpOwpsaW5lcy5wdXNoKCIvLyAgICAgbm9kZSB0b29scy9nZW4tZ28ubWpzIik7CmxpbmVzLnB1c2goIi8vIik7CmxpbmVzLnB1c2goIi8vIEEgQ0kgZHJpZnQgZ2F0ZSAoLmdpdGVhL3dvcmtmbG93cy9jb2RlZ2VuLWRyaWZ0LnltbCkgcmUtcnVucyB0aGUgZ2VuZXJhdG9yIGFuZCIpOwpsaW5lcy5wdXNoKCIvLyBmYWlscyBpZiB0aGlzIGZpbGUgZGlmZmVycyBmcm9tIGEgZnJlc2ggcmVnZW5lcmF0aW9uLCBwZXIgUkZDIG1vbGVjdWxlLWNvcmUjMzI4NSDCpzE0LiIpOwpsaW5lcy5wdXNoKCIiKTsKbGluZXMucHVzaCgicGFja2FnZSBtb2xjb250cmFjdHMiKTsKbGluZXMucHVzaCgiIik7CmxpbmVzLnB1c2goIi8vIERlcml2ZWQgc2NhbGFyIHN0cmluZyBjb25zdGFudHMgZnJvbSB0aGUgTUNQIHBsdWdpbi1kZWxpdmVyeSBjb250cmFjdC4iKTsKbGluZXMucHVzaCgiY29uc3QgKCIpOwpmb3IgKGNvbnN0IHsgZ29OYW1lLCBmaWVsZCwgZG9jLCB2YWx1ZSB9IG9mIGRlcml2ZWQpIHsKICBsaW5lcy5wdXNoKGBcdC8vICR7Z29OYW1lfSBpcyBkZXJpdmVkIGZyb20gY29udHJhY3QgZmllbGQgIiR7ZmllbGR9IjogJHtkb2N9YCk7CiAgbGluZXMucHVzaChgXHQke2dvTmFtZX0gPSAke2dvU3RyaW5nTGl0ZXJhbCh2YWx1ZSl9YCk7CiAgbGluZXMucHVzaCgiIik7Cn0KLy8gZHJvcCB0aGUgdHJhaWxpbmcgYmxhbmsgbGluZSBpbnNpZGUgdGhlIGNvbnN0IGJsb2NrIGJlZm9yZSB0aGUgY2xvc2luZyBwYXJlbgppZiAobGluZXNbbGluZXMubGVuZ3RoIC0gMV0gPT09ICIiKSBsaW5lcy5wb3AoKTsKbGluZXMucHVzaCgiKSIpOwpsaW5lcy5wdXNoKCIiKTsKCmNvbnN0IG91dCA9IGxpbmVzLmpvaW4oIlxuIik7CgppZiAocHJvY2Vzcy5hcmd2LmluY2x1ZGVzKCItLWNoZWNrIikpIHsKICBwcm9jZXNzLnN0ZG91dC53cml0ZShvdXQpOwogIHByb2Nlc3MuZXhpdCgwKTsKfQoKbWtkaXJTeW5jKGRpcm5hbWUoT1VUX1BBVEgpLCB7IHJlY3Vyc2l2ZTogdHJ1ZSB9KTsKd3JpdGVGaWxlU3luYyhPVVRfUEFUSCwgb3V0LCAidXRmOCIpOwpjb25zb2xlLmVycm9yKGBnZW4tZ286IHdyb3RlICR7T1VUX1BBVEh9ICgke2Rlcml2ZWQubGVuZ3RofSBjb25zdHMgZGVyaXZlZCBmcm9tICR7Q09OVFJBQ1RfUEFUSH0pYCk7Cg==
+#!/usr/bin/env node
+// gen-go.mjs — generate Go bindings from the MCP plugin-delivery contract IDL.
+//
+// IMPORTANT (the whole point of this generator):
+//   Every emitted constant VALUE is DERIVED from the contract JSON instance at
+//   `mcp/mcp-plugin-delivery.contract.json`. NOTHING is hardcoded here — there is
+//   deliberately no string literal "provision_workspace" (or any other contract
+//   value) anywhere in this file. Rename the verb in the contract and re-run, and
+//   the generated `RequiredTool` changes with it. That is what makes the schema
+//   `const` pin + the validate CI + the drift gate load-bearing end to end.
+//
+// Usage:
+//   node tools/gen-go.mjs            # write gen/go/contract_gen.go
+//   node tools/gen-go.mjs --check    # print to stdout, do not write (debug)
+//
+// Run from the repo root (paths below are resolved relative to this file's
+// location, so cwd does not matter).
+
+import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
+import { dirname, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
+
+const here = dirname(fileURLToPath(import.meta.url));
+const repoRoot = resolve(here, "..");
+
+const CONTRACT_PATH = resolve(repoRoot, "mcp/mcp-plugin-delivery.contract.json");
+const OUT_PATH = resolve(repoRoot, "gen/go/contract_gen.go");
+
+// --- read the canonical IDL instance ----------------------------------------
+const raw = readFileSync(CONTRACT_PATH, "utf8");
+let contract;
+try {
+  contract = JSON.parse(raw);
+} catch (err) {
+  console.error(`gen-go: ${CONTRACT_PATH} is not valid JSON: ${err.message}`);
+  process.exit(1);
+}
+
+// --- derive the scalar string constants we expose ----------------------------
+// Each entry maps a Go const identifier to the contract field it is DERIVED from.
+// We keep this to stable scalar string identifiers only. The nested `runtimes`
+// / `port` objects are intentionally NOT modeled as Go types in this first pass
+// (see tools/README.md "Follow-ons").
+const SCALAR_CONSTS = [
+  // Go const name           contract field             doc
+  ["RequiredTool", "required_tool",
+    "the singular tool verb the concierge management MCP must expose; the degrade gate fails closed if it is absent on the live surface (the #3082 phantom-verb invariant)."],
+  ["MCPServerName", "mcp_server_name",
+    "logical name of the management-mode MCP server descriptor."],
+  ["SettingsKey", "key",
+    "top-level key inside the settings file under which MCP servers are declared."],
+  ["DefaultSettingsPath", "settings_path",
+    "default (claude_code) settings file path the rendered MCP descriptor is written to."],
+  ["LoadedMCPToolsField", "loaded_mcp_tools_field",
+    "name of the field reporting the set of tools actually loaded from the MCP server."],
+  ["RuntimePresentField", "runtime_present_field",
+    "name of the runtime-reported boolean field indicating the MCP server is present."],
+  ["LegacyBinaryPath", "legacy_binary_path",
+    "filesystem path of the legacy MCP server binary older presence probes checked."],
+];
+
+const derived = [];
+for (const [goName, field, doc] of SCALAR_CONSTS) {
+  const value = contract[field];
+  if (typeof value !== "string") {
+    console.error(
+      `gen-go: contract field '${field}' is missing or not a string (got ${JSON.stringify(value)}); ` +
+      `cannot derive Go const ${goName}. The contract instance must validate against the schema first.`
+    );
+    process.exit(1);
+  }
+  derived.push({ goName, field, doc, value });
+}
+
+// --- escape a derived value for safe embedding in a Go string literal --------
+function goStringLiteral(s) {
+  return JSON.stringify(s); // Go and JSON share double-quoted escape semantics for these values.
+}
+
+// --- emit -------------------------------------------------------------------
+const lines = [];
+lines.push("// Code generated by tools/gen-go.mjs — DO NOT EDIT.");
+lines.push("//");
+lines.push("// Source of truth: mcp/mcp-plugin-delivery.contract.json (validated against");
+lines.push("// mcp/mcp-plugin-delivery.schema.json). Every value below is DERIVED from that");
+lines.push("// contract instance, never hand-written. Regenerate with:");
+lines.push("//");
+lines.push("//     node tools/gen-go.mjs");
+lines.push("//");
+lines.push("// A CI drift gate (.gitea/workflows/codegen-drift.yml) re-runs the generator and");
+lines.push("// fails if this file differs from a fresh regeneration, per RFC molecule-core#3285 §14.");
+lines.push("");
+lines.push("package molcontracts");
+lines.push("");
+lines.push("// Derived scalar string constants from the MCP plugin-delivery contract.");
+lines.push("const (");
+for (const { goName, field, doc, value } of derived) {
+  lines.push(`\t// ${goName} is derived from contract field "${field}": ${doc}`);
+  lines.push(`\t${goName} = ${goStringLiteral(value)}`);
+  lines.push("");
+}
+// drop the trailing blank line inside the const block before the closing paren
+if (lines[lines.length - 1] === "") lines.pop();
+lines.push(")");
+lines.push("");
+
+const out = lines.join("\n");
+
+if (process.argv.includes("--check")) {
+  process.stdout.write(out);
+  process.exit(0);
+}
+
+mkdirSync(dirname(OUT_PATH), { recursive: true });
+writeFileSync(OUT_PATH, out, "utf8");
+console.error(`gen-go: wrote ${OUT_PATH} (${derived.length} consts derived from ${CONTRACT_PATH})`);
