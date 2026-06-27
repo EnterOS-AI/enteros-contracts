@@ -49,3 +49,7 @@ Gitea Actions is enabled on the repo (Settings → Actions).
   deliberately-identical temporary mirror; the intended direction is for core to consume /
   regenerate from `gen/` here in a later, separately-coordinated core PR (out of scope here).
   Do not diverge the two copies.
+
+## workspace-comms (descriptive — enforcement deferred)
+
+- [`workspace-comms/registry-contract.md`](workspace-comms/registry-contract.md) — the `/registry` + `/workspaces` lifecycle protocol, **typed from the three live implementations** (core producer, runtime + external-workspace-sdk consumers). Reference of record; not machine-enforced yet (codegen + conformance gate deferred until drift warrants — see the doc's *Enforcement* section).
