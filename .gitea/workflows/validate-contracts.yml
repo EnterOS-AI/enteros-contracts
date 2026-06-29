@@ -1,11 +1,13 @@
 # Schema-validation gate (RFC molecule-core#3285 §7: one check per invariant).
 #
-# Invariant enforced here: every `mcp/*.contract.json` instance MUST validate
-# against its sibling `mcp/*.schema.json`. This is what makes the schema `const`
-# pin load-bearing in CI — a future edit renaming `required_tool` away from
-# `provision_workspace` fails the schema's `"const"` and this job goes red (the
-# #3082 phantom-verb regression class). Fail-closed: any invalid instance OR any
-# contract missing its schema is a non-zero exit.
+# Invariant enforced here: every `*/*.contract.json` instance (one per contract
+# domain — mcp/, workspace-comms/, ...) MUST validate against its sibling
+# `*/*.schema.json`. This is what makes a schema `const`/`enum`/`required` pin
+# load-bearing in CI — e.g. renaming `required_tool` away from
+# `provision_workspace` fails the mcp schema's `"const"` and this job goes red
+# (the #3082 phantom-verb regression class), and a workspace-comms register
+# response drifting off `status:"registered"` fails the same way. Fail-closed:
+# any invalid instance OR any contract missing its schema is a non-zero exit.
 name: validate-contracts
 
 on:
@@ -28,14 +30,14 @@ jobs:
       - name: Install check-jsonschema
         run: pip install --no-cache-dir check-jsonschema
 
-      - name: Validate every mcp/*.contract.json against its sibling schema
+      - name: Validate every */*.contract.json against its sibling schema
         shell: bash
         run: |
           set -euo pipefail
           shopt -s nullglob
-          contracts=(mcp/*.contract.json)
+          contracts=(*/*.contract.json)
           if [ ${#contracts[@]} -eq 0 ]; then
-            echo "::error::no mcp/*.contract.json instances found — nothing to validate (fail-closed)"
+            echo "::error::no */*.contract.json instances found — nothing to validate (fail-closed)"
             exit 1
           fi
           rc=0
