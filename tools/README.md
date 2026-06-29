@@ -34,10 +34,15 @@ them by hand.** The drift gate enforces this mechanically (see below).
 To regenerate after a contract change:
 
 ```sh
-node tools/gen-go.mjs        # rewrites gen/go/contract_gen.go
-node tools/gen-ts.mjs        # rewrites gen/ts/contract_gen.ts
-node tools/gen-python.mjs    # rewrites gen/python/contract_gen.py
+node tools/gen-go.mjs        # rewrites gen/go/{contract_gen.go, workspace_comms_gen.go}
+node tools/gen-ts.mjs        # rewrites gen/ts/{contract_gen.ts, workspace_comms_gen.ts}
+node tools/gen-python.mjs    # rewrites gen/python/{contract_gen.py, workspace_comms_gen.py}
 ```
+
+Each `gen-<lang>.mjs` now emits **two** files: the `contract_gen.<ext>` mcp
+bindings (scalars/`const`s derived from the `mcp/` contract *instance*) and a
+`workspace_comms_gen.<ext>` of model types derived from the `workspace-comms/`
+*schemas* (see "workspace-comms models" below).
 
 All three generators are Node `.mjs` scripts, so regenerating (and the CI drift
 gate) needs only `node` — no Go or Python toolchain.
@@ -88,13 +93,50 @@ that generates Python *source* (keeps CI Node-only). Emits idiomatic
 module-level `UPPER_SNAKE_CASE = "<value>"` constants plus an `__all__` export
 list. Validated with `python3 -c "import ast; ast.parse(...)"`.
 
+## workspace-comms models (`gen/<lang>/workspace_comms_gen.<ext>`) — implemented
+
+Wave 2. The same three `gen-<lang>.mjs` scripts ALSO emit a second file of
+**model bindings** for the `workspace-comms/` contracts (`register`, `heartbeat`,
+`a2a-envelope`, `agent-card`). Unlike `mcp/` — whose product is a config
+instance's *values* — the workspace-comms product is the *shape* of the
+request/response message types, which lives in each `*.schema.json` (the
+`.contract.json` is only a canonical example the schema validates). So these
+models are **derived from the schemas, not the instances**.
+
+- A shared walker, [`lib/comms-schema.mjs`](./lib/comms-schema.mjs), reads every
+  `workspace-comms/*.schema.json` and produces a language-agnostic IR (named
+  object types + the `const`-pinned string literals). Each generator imports that
+  ONE IR and renders it idiomatically — **Go structs**, **TS interfaces**,
+  **Python `TypedDict`s** — so the three languages stay in lockstep and every
+  type/field name is derived from the schema, never hand-written.
+- **Names** are structural: a type is named for its schema (`Register`,
+  `RegisterRequest`, `RegisterResponse`), `$defs` and inline objects are prefixed
+  by the contract base (`RegisterAgentCard`, `HeartbeatRuntimeMetadata`) so the
+  aggregated file is collision-free.
+- **Requiredness → optionality.** Optional fields become `*T`+`,omitempty`
+  (Go pointers preserve the load-bearing tri-states, e.g. `*bool mcp_server_present`),
+  `field?:` (TS), and `NotRequired[T]` (Python).
+- **`const` pins → exported constants.** The load-bearing response literals
+  (`status` ∈ {`registered`,`ok`,`queued`}, `jsonrpc` = `2.0`) are emitted as
+  importable consts so consumers assert against them instead of re-typing the
+  literal. `enum`s and field docs are carried as comments only.
+
+The mcp `contract_gen.<ext>` output is left **byte-identical** — comms generation
+is strictly additional. No workflow change is needed: `codegen-drift.yml` already
+re-runs all three `gen-<lang>.mjs`, so the new files are drift-gated automatically.
+
+This is the SSOT the independent Python impls (`molecule_runtime` /
+`molecule_external_workspace`) and the TS channel surfaces repoint onto next, so
+they cannot drift from each other (see `workspace-comms/README.md`).
+
 ## Follow-ons (TODO — not in this pass)
 
-- **Nested `runtimes` / `port` types.** All three generators currently emit
-  **stable scalar string identifiers only**; they deliberately do **not** model
-  the nested `runtimes` (per-runtime render targets) or `port` (the MCP-wiring
-  hook/impl/probe surface) objects as structs/interfaces/dataclasses. Modeling
-  the nested shapes is a follow-on.
+- **Nested mcp `runtimes` / `port` types.** The mcp generator still emits
+  **stable scalar string identifiers only** (plus the full `Contract` value in
+  Go); the TS/Python mcp bindings deliberately do **not** model the nested
+  `runtimes` / `port` objects as interfaces/dataclasses. (The schema-driven walker
+  added for workspace-comms could be pointed at the mcp schema to close this — a
+  follow-on.)
 - **core consumes `gen/go`.** In a later, separately-coordinated `molecule-core`
   PR (out of scope here — this task does not touch core), core will consume
   `gen/go` from this repo instead of hand-maintaining its local

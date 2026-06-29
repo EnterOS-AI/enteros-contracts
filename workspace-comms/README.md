@@ -60,24 +60,30 @@ are kept in lockstep with it.
   **`*/*.contract.json`** (was `mcp/*.contract.json`) and validates each against its
   sibling schema — so these contracts are enforced exactly like the mcp one. Fail-closed
   on any invalid instance or any contract missing its schema.
-- **`codegen-drift`** is unaffected: the three generators in `tools/` are currently
-  **hard-coded** to `mcp/mcp-plugin-delivery.contract.json` and do not auto-discover, so
-  they emit nothing for `workspace-comms/` and `gen/` is unchanged. Generating shared
-  Go/TS/Python models from these schemas is a deliberate **follow-up** (see below).
+- **`codegen-drift`** now covers these contracts: the three generators in `tools/` emit a
+  second file per language — `gen/<lang>/workspace_comms_gen.<ext>` — of **model bindings**
+  (Go structs / TS interfaces / Python `TypedDict`s) **derived from these `*.schema.json`
+  shapes** via the shared walker `tools/lib/comms-schema.mjs`, with the load-bearing `const`
+  literals (`status` ∈ {registered, ok, queued}, `jsonrpc` = 2.0) emitted as importable
+  constants. The mcp `contract_gen.<ext>` output stays byte-identical; the drift gate
+  re-runs all three generators unchanged. See `tools/README.md` ("workspace-comms models").
 
 ## SSOT direction / what repoints next
 
-These schemas are the SSOT the three independent impls converge on:
+These schemas are the SSOT the three independent impls converge on. The generated models
+now exist (`gen/<lang>/workspace_comms_gen.<ext>`); what remains is repointing each
+consumer onto them:
 
 - **Python consumers** (`molecule-ai-workspace-runtime/molecule_runtime` and
-  `molecule-external-workspace-sdk/molecule_external_workspace`) repoint onto generated
-  Python models so they cannot drift from each other.
-- **TS consumers** (the channel surfaces + `mcp-server`) repoint onto generated TS types.
+  `molecule-external-workspace-sdk/molecule_external_workspace`) repoint onto the generated
+  Python `TypedDict`s so they cannot drift from each other.
+- **TS consumers** (the channel surfaces + `mcp-server`) repoint onto the generated TS
+  interfaces.
 - The AST drift-checker
   `molecule-ai-workspace-runtime/scripts/check_platform_comm_contract.py` **retires** once
   a generated-model + conformance gate lands here (the advisory→soak→required ladder in
   registry-contract.md *Enforcement* and RFC #3285 §14).
 
-Until codegen lands, treat `registry-contract.md` (descriptive prose + divergence
-register) and these schemas (enforced shape) as the paired record: **if you change the
-protocol, update both.**
+Treat `registry-contract.md` (descriptive prose + divergence register) and these schemas
+(enforced shape) as the paired record: **if you change the protocol, update both** (and
+regenerate `gen/`).
