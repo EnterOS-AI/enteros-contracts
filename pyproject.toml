@@ -1,0 +1,41 @@
+# pyproject.toml — packages the generated Python bindings under gen/python as the
+# installable distribution `molecule-ai-contracts` (import name: molecule_ai_contracts).
+#
+# Why this lives at the repo root (not in gen/): the generators (tools/gen-python.mjs)
+# write ONLY gen/python/contract_gen.py and gen/python/workspace_comms_gen.py. This
+# manifest and the package shim gen/python/__init__.py are hand-written and outside
+# the generators' write paths, so a fresh regen never clobbers them and the
+# codegen-drift gate (`git diff --exit-code -- gen/`) stays green.
+#
+# The package maps `molecule_ai_contracts` -> gen/python, so:
+#   from molecule_ai_contracts import REQUIRED_TOOL, RegisterRequest
+#   from molecule_ai_contracts.contract_gen import MCP_SERVER_NAME
+#   from molecule_ai_contracts.workspace_comms_gen import HeartbeatRequest
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "molecule-ai-contracts"
+version = "0.1.0"
+description = "Generated Python bindings for the molecule-ai contract SSOT (molecule-contracts / RFC molecule-core#3285): MCP plugin-delivery scalars + workspace-comms message TypedDicts."
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "UNLICENSED" }
+keywords = ["molecule-ai", "contracts", "ssot", "codegen", "workspace-comms"]
+
+dependencies = [
+  # NotRequired is stdlib on 3.11+; the generated modules fall back to
+  # typing_extensions on older interpreters.
+  "typing_extensions>=4.0; python_version < '3.11'",
+]
+
+[project.urls]
+Repository = "https://git.moleculesai.app/molecule-ai/molecule-contracts"
+
+[tool.setuptools]
+packages = ["molecule_ai_contracts"]
+
+[tool.setuptools.package-dir]
+molecule_ai_contracts = "gen/python"
