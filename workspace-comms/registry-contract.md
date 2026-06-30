@@ -13,7 +13,7 @@
 
 - **Producer (server):** `molecule-core` — `workspace-server/internal/handlers/{registry,discovery,delegation,secrets}.go`, routes `internal/router/router.go:457-470`, payloads `internal/models/workspace.go`, auth `internal/middleware/wsauth_middleware.go`.
 - **Consumer A (in-platform):** `molecule-ai-workspace-runtime` — `molecule_runtime/{platform_auth,coordinator,mcp_heartbeat,runtime_inbox,platform_inbound_auth}.py` (uses `httpx`).
-- **Consumer B (off-platform):** `molecule-external-workspace-sdk` — `molecule_external_workspace/{client,a2a_server,inbound}.py` (uses `requests`).
+- **Consumer B (off-platform):** `molecule-ai-sdk` — `molecule_external_workspace/{client,a2a_server,inbound}.py` (uses `requests`).
 
 These are **three independent implementations of one protocol** (different HTTP
 libraries, no shared base code). That is the standing risk this document exists to
