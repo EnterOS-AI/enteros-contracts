@@ -255,7 +255,7 @@ class WorkspaceTemplateA2a(TypedDict):
     streaming: NotRequired[bool]
 
 class OrgTemplate(TypedDict):
-    """SSOT JSON-Schema (draft 2020-12) for the Molecule marketplace org-template artifact — the publishable shape of an org-template `org.yaml` (+ per-agent `workspace.yaml`) (molecule-ai-org-template-* repos). DERIVED FROM THE REAL ARTIFACTS + their CI validator: molecule-ai-org-template-molecule-dev/org.yaml (+ community-manager/workspace.yaml), gemini-growth-team, mock-bigorg, validated by validate-org-template.py (required: name; must have at least `workspaces` or `defaults`; each workspace needs `name`; `plugins` must be a list; recurses `children`). TWO COMPOSITION STYLES are tolerated, exactly as the real templates use them: (1) INLINE — `workspaces` is a LIST of recursive workspace nodes with `children[]` (gemini-growth-team, mock-bigorg); (2) FOLDER-TREE — `org.yaml` references per-agent `workspace.yaml` files via custom YAML tags (`!include`, `!external`) that resolve at platform load time to workspace nodes (molecule-dev). Those custom tags are a YAML-load concern (validate-org-template.py parses past them) and do not appear in this JSON contract; this schema models the RESOLVED node tree. `workspaces` accepts BOTH a list AND a map (name->node) so either authoring style validates. Modelled permissively (additionalProperties:true) because org templates carry heterogeneous per-org config (category_routing, idle-loop knobs, initial prompts)."""
+    """SSOT JSON-Schema (draft 2020-12) for the Molecule marketplace org-template artifact — the publishable shape of an org-template `org.yaml` (+ per-agent `workspace.yaml`) (molecule-ai-org-template-* repos). DERIVED FROM THE REAL ARTIFACTS + their CI validator: molecule-ai-org-template-molecule-dev/org.yaml (+ community-manager/workspace.yaml), gemini-growth-team, mock-bigorg, validated by validate-org-template.py (required: name; must have at least `workspaces` or `defaults`; each workspace needs `name`; `plugins` must be a list; recurses `children`). TWO COMPOSITION STYLES are tolerated, exactly as the real templates use them: (1) INLINE — `workspaces` is a LIST of recursive workspace nodes with `children[]` (gemini-growth-team, mock-bigorg); (2) FOLDER-TREE — `org.yaml` references per-agent `workspace.yaml` files via custom YAML tags (`!include`, `!external`) that resolve at platform load time to workspace nodes (molecule-dev). Those custom tags are a YAML-load concern (validate-org-template.py parses past them): `!include x.yaml` loads as a plain path STRING and `!external {repo,ref,path}` loads as a plain MAP. `workspaces` therefore accepts BOTH a LIST and a MAP (name->node), and each LIST item is one of THREE forms: a resolved inline workspaceNode, an UNRESOLVED `!external` ref object (`$defs/unresolvedExternalRef`), or an UNRESOLVED `!include` path string. The two unresolved forms are PRE-RESOLUTION refs that core's `!include`/`!external` resolver expands into workspace nodes at platform load time; modelling them lets the real folder-tree templates (molecule-dev, molecule-production) validate as-authored, not only post-resolution. Modelled permissively (additionalProperties:true) because org templates carry heterogeneous per-org config (category_routing, idle-loop knobs, initial prompts)."""
 
     # Org template name (required by validate-org-template.py).
     name: str
@@ -265,8 +265,18 @@ class OrgTemplate(TypedDict):
     template_schema_version: NotRequired[int]
     # Org-wide defaults applied to every workspace (runtime, tier, plugins[], category_routing, idle_prompt/idle_interval_seconds, initial_prompt, ...). Per-workspace `plugins:` UNIONs with `defaults.plugins`. Modelled as an OPEN object because the contents are heterogeneous per-org; validate-org-template.py only requires that `workspaces` OR `defaults` is present.
     defaults: NotRequired[Dict[str, Any]]
-    # The workspace tree. Accepts BOTH a LIST of workspace nodes (inline composition — gemini-growth-team/mock-bigorg) AND a MAP of name->node. In the folder-tree style (molecule-dev) the real org.yaml lists `!include`/`!external` YAML tags that resolve to these nodes at load time.
+    # The workspace tree. Accepts BOTH a LIST of workspace items (inline composition — gemini-growth-team/mock-bigorg) AND a MAP of name->node. In the FOLDER-TREE style (molecule-dev, molecule-production) the real org.yaml does NOT inline the nodes: it lists per-agent references via custom YAML tags — `!include teams/x.yaml` (a path string after YAML load) and `!external {repo, ref, path}` (a map after YAML load). core's `!include`/`!external` resolver EXPANDS these to full workspace nodes at platform load time; they are PRE-RESOLUTION refs, not resolved nodes. So each LIST item is one of THREE forms: (1) a resolved inline workspaceNode; (2) an unresolved `!external` ref object `{repo, ref, path}`; (3) an unresolved `!include` path STRING. The MAP branch carries the resolved name->node style.
     workspaces: NotRequired[Any]
+
+class OrgTemplateUnresolvedExternalRef(TypedDict):
+    """An UNRESOLVED `!external` workspace reference, as it appears in a folder-tree org.yaml AFTER the custom `!external` YAML tag is stripped at load time (molecule-dev pins the dev department, molecule-core#105 / internal#77). core's gitops resolver fetches `repo` at `ref` and expands `path` into a workspaceNode at platform import time; this object is the PRE-RESOLUTION ref, not the resolved node. Distinct oneOf branch from workspaceNode (which requires `name`, absent here)."""
+
+    # Source repo holding the external workspace, e.g. `molecule-ai/molecule-dev-department`.
+    repo: str
+    # Pinned git ref (tag/branch/sha), e.g. `v1.0.0`.
+    ref: str
+    # Path within `repo`@`ref` to the agent's `workspace.yaml`, e.g. `dev-lead/workspace.yaml`.
+    path: str
 
 class OrgTemplateWorkspaceNode(TypedDict):
     """A single workspace (agent) node. Recursive via `children[]`. Fields derived from the inline nodes (gemini-growth-team) and the folder-tree workspace.yaml (molecule-dev/community-manager). `name` is the only field validate-org-template.py requires; `plugins` must be a list when present."""
@@ -435,6 +445,7 @@ __all__ = [
     "WorkspaceTemplateRuntimeConfig",
     "WorkspaceTemplateA2a",
     "OrgTemplate",
+    "OrgTemplateUnresolvedExternalRef",
     "OrgTemplateWorkspaceNode",
     "OrgTemplateChannel",
     "OrgTemplateSchedule",
