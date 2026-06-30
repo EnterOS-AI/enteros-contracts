@@ -75,7 +75,7 @@ now exist (`gen/<lang>/workspace_comms_gen.<ext>`); what remains is repointing e
 consumer onto them:
 
 - **Python consumers** (`molecule-ai-workspace-runtime/molecule_runtime` and
-  `molecule-external-workspace-sdk/molecule_external_workspace`) repoint onto the generated
+  `molecule-ai-sdk/molecule_external_workspace`) repoint onto the generated
   Python `TypedDict`s so they cannot drift from each other.
 - **TS consumers** (the channel surfaces + `mcp-server`) repoint onto the generated TS
   interfaces.
