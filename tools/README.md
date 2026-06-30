@@ -129,6 +129,39 @@ This is the SSOT the independent Python impls (`molecule_runtime` /
 `molecule_external_workspace`) and the TS channel surfaces repoint onto next, so
 they cannot drift from each other (see `workspace-comms/README.md`).
 
+## marketplace catalog models (`gen/<lang>/catalog_gen.<ext>`) — implemented
+
+Wave 3. The same three `gen-<lang>.mjs` scripts ALSO emit a third file of model
+bindings for the **marketplace catalog contract** — the three artifact manifests
+(`plugin-manifest/`, `workspace-template/`, `org-template/`) plus the unified
+`catalog/catalog-entry` envelope. Like workspace-comms, the product is the *shape*
+of the manifests, so these models are **derived from the schemas, not the
+instances**.
+
+- The shared walker [`lib/comms-schema.mjs`](./lib/comms-schema.mjs) was
+  generalised: `buildModelIR(repoRoot, dirs)` walks **any list of surface
+  directories** (the catalog generation passes
+  `["plugin-manifest","workspace-template","org-template","catalog"]`), and
+  `buildCommsModelIR` is now a thin wrapper over it for `["workspace-comms"]` —
+  so the workspace-comms (and mcp) output stays **byte-identical**.
+- The walker now also resolves **scalar/enum `$defs` inline** at their `$ref`
+  sites (e.g. the shared `runtimeId` string enum becomes a `string`/`str` field
+  at every use) instead of requiring every `$def` to be an object struct. Only
+  object-with-properties `$defs` become named types.
+- **Recursion** is supported: `org-template`'s `workspaceNode` references itself
+  via `children[]`, which the walker emits as a self-referential
+  struct/interface/TypedDict (`Children []OrgTemplateWorkspaceNode`, …).
+- The per-kind catalog `spec` (a `oneOf` keyed on `kind`) is modelled as an open
+  map on the envelope, while the discriminated spec types (`CatalogEntryPluginSpec`,
+  `CatalogEntryWorkspaceTemplateSpec`, `CatalogEntryOrgTemplateSpec`) are emitted
+  as named types from the schema `$defs`.
+
+The mcp + workspace-comms output is left **byte-identical** — catalog generation
+is strictly additional. No workflow change is needed: `codegen-drift.yml` already
+re-runs all three `gen-<lang>.mjs`, and `validate-contracts.yml` already globs
+`*/*.contract.json`, so the four new contracts are validated + drift-gated
+automatically.
+
 ## Follow-ons (TODO — not in this pass)
 
 - **Nested mcp `runtimes` / `port` types.** The mcp generator still emits

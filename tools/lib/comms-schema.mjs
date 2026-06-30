@@ -70,41 +70,61 @@ function oneLine(s) {
 //   | { k:"named", name }
 //   | { k:"array", items: TypeRef }
 //   | { k:"map", value: TypeRef }
-export function buildCommsModelIR(repoRoot) {
-  const dir = resolve(repoRoot, COMMS_DIR);
-  const files = readdirSync(dir)
-    .filter((f) => f.endsWith(".schema.json"))
-    .sort(); // deterministic cross-file emission order
-
+// buildModelIR(repoRoot, dirs) — the generic walker over one or more surface
+// directories of `*.schema.json` contracts. Each directory is read, its schema
+// files sorted (deterministic emission order), and every root type + $def walked
+// into the shared IR. A single shared `registered` set dedupes across dirs and a
+// single `types`/`consts` pair aggregates them, so one IR → one generated file.
+// Type names are prefixed by the schema FILENAME base (not the dir), so distinct
+// contracts stay collision-free.
+export function buildModelIR(repoRoot, dirs) {
   const types = [];
   const consts = [];
   const registered = new Set(); // type names already emitted (dedupe)
 
-  for (const file of files) {
-    const rel = `${COMMS_DIR}/${file}`;
-    const abs = resolve(dir, file);
-    let schema;
-    try {
-      schema = JSON.parse(readFileSync(abs, "utf8"));
-    } catch (err) {
-      throw new Error(`comms-schema: ${rel} is not valid JSON: ${err.message}`);
-    }
+  for (const surfaceDir of dirs) {
+    const dir = resolve(repoRoot, surfaceDir);
+    const files = readdirSync(dir)
+      .filter((f) => f.endsWith(".schema.json"))
+      .sort(); // deterministic cross-file emission order
 
-    const base = baseFromFile(file);
-    const defs = schema.$defs || {};
-    const ctx = { rel, base, defs, types, consts, registered };
+    for (const file of files) {
+      const rel = `${surfaceDir}/${file}`;
+      const abs = resolve(dir, file);
+      let schema;
+      try {
+        schema = JSON.parse(readFileSync(abs, "utf8"));
+      } catch (err) {
+        throw new Error(`comms-schema: ${rel} is not valid JSON: ${err.message}`);
+      }
 
-    // root type (and everything reachable from it)
-    emitType(schema, base, ctx, `${rel}#`);
+      const base = baseFromFile(file);
+      const defs = schema.$defs || {};
+      const ctx = { rel, base, defs, types, consts, registered };
 
-    // every $def becomes a named, base-prefixed type (referenced via $ref).
-    for (const defName of Object.keys(defs)) {
-      const name = base + pascal(defName);
-      registerObjectType(defs[defName], name, ctx, `${rel}#/$defs/${defName}`);
+      // root type (and everything reachable from it)
+      emitType(schema, base, ctx, `${rel}#`);
+
+      // every OBJECT-WITH-PROPERTIES $def becomes a named, base-prefixed struct
+      // type (referenced via $ref). Scalar/enum/map $defs (e.g. a string `enum`
+      // runtime id) are NOT structs — they are resolved INLINE at their $ref
+      // sites (see emitType's $ref branch), so we skip them here.
+      for (const defName of Object.keys(defs)) {
+        if (!isStructDef(defs[defName])) continue;
+        const name = base + pascal(defName);
+        registerObjectType(defs[defName], name, ctx, `${rel}#/$defs/${defName}`);
+      }
     }
   }
 
   return { types, consts };
+}
+
+// buildCommsModelIR(repoRoot) — the original workspace-comms entry point, now a
+// thin wrapper over the generic walker. Behaviour (and generated output) is
+// byte-identical to before: a single dir, same filename-derived names, same order.
+export function buildCommsModelIR(repoRoot) {
+  return buildModelIR(repoRoot, [COMMS_DIR]);
 }
 
 // resolve a local "#/$defs/<name>" pointer to its base-prefixed type name.
@@ -118,6 +138,32 @@ function refName(pointer, ctx) {
   return ctx.base + pascal(m[1]);
 }
 
+// defNodeOf: resolve a local "#/$defs/<name>" pointer to the referenced $def
+// schema node in the current file (used to decide struct-vs-scalar at a $ref).
+function defNodeOf(pointer, ctx) {
+  const m = /^#\/\$defs\/(.+)$/.exec(pointer);
+  if (!m) {
+    throw new Error(
+      `comms-schema: ${ctx.rel}: only local '#/$defs/<name>' $refs are supported, got ${JSON.stringify(pointer)}`
+    );
+  }
+  return ctx.defs[m[1]];
+}
+
+// isStructDef: a $def is a NAMED STRUCT only if it is an object with at least one
+// named property. Everything else (a string `enum`, a scalar, a bare map) is a
+// non-struct that gets resolved inline at its $ref site rather than emitted as a
+// named type. (comms' only $def, `agentCard`, is a struct, so this is a no-op
+// for the workspace-comms output.)
+function isStructDef(node) {
+  return (
+    node != null &&
+    typeof node === "object" &&
+    node.properties != null &&
+    Object.keys(node.properties).length > 0
+  );
+}
+
 // emitType: map a schema node to a TypeRef, registering named object types as a
 // side effect. `suggested` is the name to mint if this node is an anonymous
 // (inline) object/array-item.
@@ -126,6 +172,14 @@ function emitType(schema, suggested, ctx, source) {
     throw new Error(`comms-schema: ${ctx.rel}: expected a schema object at ${source}`);
   }
   if (typeof schema.$ref === "string") {
+    // A $ref to an OBJECT-WITH-PROPERTIES def is a named type. A $ref to a
+    // scalar/enum/map def (e.g. a shared `runtimeId` string enum) is resolved
+    // INLINE to that def's TypeRef — so a shared enum becomes the underlying
+    // scalar at every use site instead of an un-emitted named alias.
+    const target = defNodeOf(schema.$ref, ctx);
+    if (target && !isStructDef(target)) {
+      return emitType(target, refName(schema.$ref, ctx), ctx, source);
+    }
     return { k: "named", name: refName(schema.$ref, ctx) };
   }
 
