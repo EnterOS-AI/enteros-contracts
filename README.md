@@ -1,3 +1,22 @@
+> # ⚰️ ARCHIVED — this repo has been folded into `molecule-ai/molecule-ai-sdk`
+>
+> **Do not open new PRs here.** `molecule-contracts` is now a read-only tombstone.
+> Its contracts + codegen live in the single consolidated home:
+>
+> - **Contracts (SSOT):** `molecule-ai/molecule-ai-sdk` → `contracts/<domain>/*.contract.json` + `*.schema.json`
+> - **Generated bindings:** `gen/go/molcontracts`, `gen/ts` (`@molecule-ai/contracts`), `gen/python` (`molecule_ai_contracts`)
+> - **New Go import:** `go.moleculesai.app/sdk/molcontracts` (was `go.moleculesai.app/molecule-contracts/gen/go`)
+> - **TS / Python dist names are unchanged** — `@molecule-ai/contracts` and `molecule_ai_contracts` are now published from `molecule-ai-sdk`, so those consumers need no source change.
+>
+> **Legacy compatibility:** the frozen commit `ffd2cf33343abfc6d0adea04263d98ee0554ef5e` remains go-gettable
+> at `go.moleculesai.app/molecule-contracts/gen/go@ffd2cf33343a` from this archived repo, so pinned
+> consumers keep building until they repoint. This vanity path will be dropped once the last consumer
+> (molecule-core, PR #3374) is repointed and merged.
+>
+> Migration + fold: see `molecule-ai/molecule-ai-sdk` PR **#41** (fold) and PR **#40** (cloudproviders SSOT).
+
+---
+
 # molecule-contracts
 
 **Single source of truth for the Molecule tool/capability and template contracts.**
